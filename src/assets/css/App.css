@@ -32,7 +32,7 @@
   height: 600px;
 }
 
-@media (min-width: 601px) and (max-width: 1200px) {
+@media (min-width: 900px) {
   #card-chat {
     width: 75%;
   }
