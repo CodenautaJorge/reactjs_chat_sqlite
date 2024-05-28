@@ -90,6 +90,8 @@ function ChatRoom() {
     console.log(data);
     if (data.success) {
       console.log(data.success);
+      //Eliminamos el mensaje del array messagesBdd
+      setMessagesBdd(prevItems => prevItems.filter(item => item.id !== id));
     }
   };
 
