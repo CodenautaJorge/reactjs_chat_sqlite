@@ -56,7 +56,7 @@ function ChatRooms(){
     }
     
     return(
-        <div className="row m-0">
+        <div id="chatrooms">
             <div className="d-flex justify-content-center">
                 <h3 className="text-center text-light fw-bold mb-1 mt-5">CHAT</h3>
             </div>
