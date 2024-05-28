@@ -77,6 +77,22 @@ function ChatRoom() {
     }
   }
 
+  //Función para eliminar un mensaje propio
+  async function deleteMessage(id){
+    const response = await fetch(apiUrl + "/api/deletemessage", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({id}),
+    });
+    const data = await response.json();
+    console.log(data);
+    if (data.success) {
+      console.log(data.success);
+    }
+  };
+
   //Función para enfocar al final del div
   function scrollToBottom(offset = 0){
     if(divRef.current){
@@ -115,7 +131,7 @@ function ChatRoom() {
                           <span className="text-muted fw-bold">Yo</span>:{" "}
                           {msg.message}
                           <div className="d-flex justify-content-end">
-                            <span className="text-muted date-text">{msg.created_at}</span>
+                            <span className="text-muted date-text">{msg.created_at}<span className='fw-bold' onClick={() => deleteMessage(msg.id)}> Eliminar</span></span>
                           </div>
                         </div>
                       </div>
