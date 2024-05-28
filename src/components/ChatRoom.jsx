@@ -131,7 +131,7 @@ function ChatRoom() {
                           <span className="text-muted fw-bold">Yo</span>:{" "}
                           {msg.message}
                           <div className="d-flex justify-content-end">
-                            <span className="text-muted date-text">{msg.created_at} <button type="button" className='btn btn-danger btn-sm' onClick={() => deleteMessage(msg.id)}> Eliminar</button></span>
+                            <span className="text-muted date-text">{msg.created_at} <button type="button" className='btn-close' onClick={() => deleteMessage(msg.id)}></button></span>
                           </div>
                         </div>
                       </div>
