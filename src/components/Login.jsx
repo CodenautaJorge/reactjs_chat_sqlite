@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import LoadingSpinner from './LoadingSpinner';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -8,12 +9,13 @@ function Login() {
   const [password, setPassword] = useState("");
   const [messageSuccess, setMessageSuccess] = useState("");
   const [messageError, setMessageError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const response = await fetch(apiUrl + "/api/login", {
       method: "POST",
       headers: {
@@ -26,12 +28,13 @@ function Login() {
       setMessageError("")
       setMessageSuccess(data.success);
       localStorage.setItem("username", data.username); // Guardamos el nombre de usuario en localStorage
-    
+      setLoading(false);
       navigate('/chatrooms'); 
 
     }
     if (data.error) {
       setMessageError(data.error);
+      setLoading(false);
     }
   };
 
@@ -57,9 +60,15 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" className="btn btn-primary w-100 mb-3">
-            Acceder
-          </button>
+
+          {loading ? (
+            <LoadingSpinner />
+          ) : (
+            <button type="submit" className="btn btn-primary w-100 mb-3">
+              Acceder
+            </button>
+          )
+          }
           <span className="text-light">Si no dispones de una cuenta </span>
           <Link to="/signup" id="link">
             regístrate
