@@ -38,7 +38,9 @@ function Signup() {
   };
 
   return (
-    <div className="d-flex row m-0 vh-100 justify-content-center align-items-center">
+    <div className="d-flex m-0 vh-100 justify-content-center align-items-center">
+      <div className="row">
+      <div className="col">
       <form onSubmit={handleSubmit}>
         <div className="form-div">
           <h3 className="text-center text-light fw-bold mb-3">CHAT</h3>
@@ -83,6 +85,8 @@ function Signup() {
           )}
         </div>
       </form>
+    </div>
+    </div>
     </div>
   );
 }
