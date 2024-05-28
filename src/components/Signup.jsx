@@ -56,6 +56,7 @@ function Signup() {
             placeholder="Nombre de usuario/a"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
           />
           <input
             type="email"
@@ -64,6 +65,7 @@ function Signup() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <input
             type="password"
@@ -72,6 +74,7 @@ function Signup() {
             placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
           {loading ? (
             <LoadingSpinner />
