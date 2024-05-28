@@ -11,7 +11,11 @@
   width: 450px;
 }
 
-.card-chatrooms, .card-form-chatrooms{
+.card-chatrooms{
+  width: 300px;
+}
+
+.card-form-chatrooms{
   width: auto;
 }
 
