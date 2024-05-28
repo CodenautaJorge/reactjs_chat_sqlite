@@ -64,7 +64,7 @@ function ChatRooms(){
                 <p className="text-center text-light">Bienvenido/a {localStorage.getItem('username')} <span className='fw-bold logout' onClick={handleLogout}> Cerrar sesión</span></p>
             </div>
             <form onSubmit={handleSubmit}>
-                <div className="d-flex justify-content-center mt-5 card-form-chatrooms">
+                <div className="d-flex justify-content-center mt-5 card-form-chatrooms mb-5">
                     <input id="name-chatroom" onChange={handleInputChange} type="text" className="form-control mx-1" placeholder="Indica el nombre de una sala..." name="name" />
                     <button className="btn btn-primary mx-1" type="submit">Crear</button>
                 </div>
@@ -81,7 +81,7 @@ function ChatRooms(){
                     chatRooms.map((chatRoom, i) => {
                         return(
 
-                            <Link className = "link mt-5" to = {`/chatroom/${chatRoom.name}`} key={i} >
+                            <Link className = "link" to = {`/chatroom/${chatRoom.name}`} key={i} >
                                 <div className="d-flex justify-content-center align-items-center">
                                     <div className="card mt-3 card-chatrooms" >
                                         <div className='card-body'>
