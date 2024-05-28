@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import LoadingSpinner from './LoadingSpinner';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -9,9 +10,11 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [messageSuccess, setMessageSuccess] = useState("");
   const [messageError, setMessageError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const response = await fetch(apiUrl + "/api/saveuser", {
       method: "POST",
       headers: {
@@ -24,9 +27,11 @@ function Signup() {
 
     if (data.success) {
       setMessageSuccess(data.success);
+      setLoading(false);
     }
     if (data.error) {
-        setMessageError(data.error);
+      setMessageError(data.error);
+      setLoading(false);
     }
 
 
@@ -68,9 +73,14 @@ function Signup() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" className="btn btn-primary w-100 mb-3">
-            Registrarse
-          </button>
+          {loading ? (
+            <LoadingSpinner />
+          ) : (
+            <button type="submit" className="btn btn-primary w-100 mb-3">
+              Registrarse
+            </button>
+          )
+          }
           <span className="text-light">Si ya dispones de una cuenta </span>
           <Link to="/" id="link">
             accede a la aplicación
