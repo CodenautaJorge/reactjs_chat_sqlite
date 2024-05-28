@@ -72,22 +72,26 @@ function ChatRooms(){
 
             {
                 chatRooms.length === 0 ? (
-                    <div className="alert alert-info mt-5 card-chatrooms">
-                        No existen salas todavía, ¡Crea la primera sala!
+                    <div className="d-flex justify-content-center align-items-center">
+                        <div className="alert alert-info mt-5 card-chatrooms">
+                            No existen salas todavía, ¡Crea la primera sala!
+                        </div>
                     </div>
                 ):(
                     chatRooms.map((chatRoom, i) => {
                         return(
 
                             <Link className = "link" to = {`/chatroom/${chatRoom.name}`} key={i} >
-                                <div className="card mt-3 card-chatrooms" >
-                                    <div className='card-body'>
-                                        <div className="d-flex justify-content-between">
-                                            <span>{chatRoom.name}</span>
-                                            <span>{chatRoom.date}</span>
+                                <div className="d-flex justify-content-center align-items-center">
+                                    <div className="card mt-3 card-chatrooms" >
+                                        <div className='card-body'>
+                                            <div className="d-flex justify-content-between">
+                                                <span>{chatRoom.name}</span>
+                                                <span>{chatRoom.date}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>   
                             </Link>
                         )
                     })
