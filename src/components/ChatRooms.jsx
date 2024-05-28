@@ -64,7 +64,7 @@ function ChatRooms(){
                 <p className="text-center text-light">Bienvenido/a {localStorage.getItem('username')} <span className='fw-bold logout' onClick={handleLogout}> Cerrar sesión</span></p>
             </div>
             <form onSubmit={handleSubmit}>
-                <div className="d-flex justify-content-center mt-5 card-form-chatrooms">
+                <div className="d-flex row justify-content-center mt-5 card-form-chatrooms">
                     <input id="name-chatroom" onChange={handleInputChange} type="text" className="form-control mx-1" placeholder="Indica el nombre de una sala..." name="name" />
                     <button className="btn btn-primary mx-1" type="submit">Crear</button>
                 </div>
