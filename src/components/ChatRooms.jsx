@@ -65,7 +65,7 @@ function ChatRooms(){
             </div>
             <form onSubmit={handleSubmit}>
                 <div className="d-flex justify-content-center mt-5 card-form-chatrooms mb-5">
-                    <input id="name-chatroom" onChange={handleInputChange} type="text" className="form-control mx-1" placeholder="Indica el nombre de una sala..." name="name" />
+                    <input id="name-chatroom" onChange={handleInputChange} type="text" className="form-control mx-1" placeholder="Indica el nombre de una sala..." name="name" required />
                     <button className="btn btn-primary mx-1" type="submit">Crear</button>
                 </div>
             </form>
